@@ -20,6 +20,8 @@ This function will create and insert/append the elements needed to display a "pa
 function showPage(list, page) {
   const startIndex = (page * 9) - 9;
   const endIndex = (page * 9);
+
+  const ulStudentList = document.querySelector(.student-list);
 }
 
 
