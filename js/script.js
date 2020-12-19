@@ -21,10 +21,31 @@ function showPage(list, page) {
   const startIndex = (page * 9) - 9;
   const endIndex = (page * 9);
 
-  const ulStudentList = document.querySelector(.student-list);
+  let ulStudentList = document.querySelector('.student-list');
+    ulStudentList.innerHTML = "";
+
+  for(let i = 0; i < list.length; i++){
+    if ((i >= startIndex) && (i < endIndex)) {
+      const listItem = `
+      <li class="student-item cf">
+        <div class="student-details">
+          <img class="avatar" src="${data[i].picture}" alt="Profile Picture">
+          <h3>${data[i].name}</h3>
+          <span class="email">${data[i].email}</span>
+        </div>
+        <div class="joined-details">
+          <span class="date">${data[i].registered}</span>
+        </div>
+      </li>
+    `;
+    ulStudentList.insertAdjacentHTML('beforeend', listItem);
+    }
+  }
+
+  return ulStudentList;
 }
 
-
+showPage(data, 1);
 /*
 Create the `addPagination` function
 This function will create and insert/append the elements needed for the pagination buttons
