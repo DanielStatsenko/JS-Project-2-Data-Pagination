@@ -52,7 +52,7 @@ function showPage(list, page) {
   return ulStudentList;
 }
 
-showPage(data, 1);
+
 /*
 Create the `addPagination` function
 This function will create and insert/append the elements needed for the pagination buttons
@@ -71,7 +71,24 @@ function addPagination (list) {
     linkList.insertAdjacentHTML('beforeend', pageButton);
   }
 
+  const firstPaginationButton = linkList.firstElementChild.firstElementChild.className = 'active';
 
+  showPage(data, 1);
+
+  linkList.addEventListener('click', (e) => {
+    if (e.target.tagName == 'BUTTON') {
+      for(i = 0; i < linkList.children.length; i++) {
+        linkList.children[i].firstElementChild.className = '';
+      }
+      let activePaginationButton = e.target;
+      activePaginationButton.className = 'active';
+
+      const pageNumber = activePaginationButton.textContent;
+
+      showPage(data, pageNumber);
+    }
+  });
+  
   return numberOfPaginationButtons;
 }
 
