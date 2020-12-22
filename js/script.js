@@ -11,13 +11,36 @@ For assistance:
    Reach out in your Slack community: https://treehouse-fsjs-102.slack.com/app_redirect?channel=unit-2
 */
 
+function studentSearch () {
+  const header = document.querySelector('.header');
+    const searchField = `
+    <label for="search" class="student-search">
+      <input id="search" placeholder="Search by name...">
+      <button type="button"><img src="img/icn-search.svg" alt="Search icon"></button>
+    </label>
+    `;
+    header.insertAdjacentHTML('beforeend', searchField);
+
+    const searchFieldText = searchField.firstElementChild.textContent
+
+    searchField.addEventListener('click', (e) => {
+      if () {
+
+      }
+    });
+
+    return header;
+}
+  
+ studentSearch();   
+    
 
 
 /*
 Create the `showPage` function
 This function will create and insert/append the elements needed to display a "page" of nine students
 */
-function showPage(list, page) {
+function showPage (list, page) {
   const startIndex = (page * 9) - 9;
   const endIndex = (page * 9);
 
@@ -74,6 +97,7 @@ function addPagination (list) {
   const firstPaginationButton = linkList.firstElementChild.firstElementChild.className = 'active';
 
   showPage(data, 1);
+  
 
   linkList.addEventListener('click', (e) => {
     if (e.target.tagName == 'BUTTON') {
