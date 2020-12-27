@@ -3,21 +3,9 @@ Treehouse Techdegree:
 FSJS Project 2 - Data Pagination and Filtering
 */
 
-
-
 /*
-For assistance:
-   Check out the "Project Resources" section of the Instructions tab: https://teamtreehouse.com/projects/data-pagination-and-filtering#instructions
-   Reach out in your Slack community: https://treehouse-fsjs-102.slack.com/app_redirect?channel=unit-2
-*/
-
-
-    
-
-
-/*
-Create the `showPage` function
-This function will create and insert/append the elements needed to display a "page" of nine students
+The `showPage` function will create and insert/append the elements needed to display a "page" 
+of nine students
 */
 function showPage (list, page) {
   const startIndex = (page * 9) - 9;
@@ -26,6 +14,9 @@ function showPage (list, page) {
   const ulStudentList = document.querySelector('.student-list');
     ulStudentList.innerHTML = "";
 
+/*
+Loops through the data.js file and displays student information
+*/    
   for(let i = 0; i < list.length; i++){
     if ((i >= startIndex) && (i < endIndex)) {
       const picture = data[i].picture.large;
@@ -47,6 +38,9 @@ function showPage (list, page) {
         </div>
       </li>
     `;
+    /* 
+    Inserts the list item markup for the student list dynamically
+    */
     ulStudentList.insertAdjacentHTML('beforeend', listItem);
     }
   }
@@ -56,7 +50,7 @@ function showPage (list, page) {
 
 
 /*
-Create the `addPagination` function
+The `addPagination` function
 This function will create and insert/append the elements needed for the pagination buttons
 */
 function addPagination (list) {
@@ -72,12 +66,17 @@ function addPagination (list) {
     `
     linkList.insertAdjacentHTML('beforeend', pageButton);
   }
-
+/*
+Selects the first pagination button and adds the "active" class
+*/
   const firstPaginationButton = linkList.firstElementChild.firstElementChild.className = 'active';
 
   showPage(data, 1);
   
-
+/*
+Removes the "active" class from the first pagination button and adds it to the 
+pagination button thathas been clicked
+*/
   linkList.addEventListener('click', (e) => {
     if (e.target.tagName == 'BUTTON') {
       for(i = 0; i < linkList.children.length; i++) {
@@ -97,4 +96,4 @@ function addPagination (list) {
 
 addPagination(data);
 
-// Call functions
+
