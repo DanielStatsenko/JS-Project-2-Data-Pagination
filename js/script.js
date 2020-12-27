@@ -11,28 +11,7 @@ For assistance:
    Reach out in your Slack community: https://treehouse-fsjs-102.slack.com/app_redirect?channel=unit-2
 */
 
-function studentSearch () {
-  const header = document.querySelector('.header');
-    const searchField = `
-    <label for="search" class="student-search">
-      <input id="search" placeholder="Search by name...">
-      <button type="button"><img src="img/icn-search.svg" alt="Search icon"></button>
-    </label>
-    `;
-    header.insertAdjacentHTML('beforeend', searchField);
 
-    const searchFieldText = searchField.firstElementChild.textContent
-
-    searchField.addEventListener('click', (e) => {
-      if () {
-
-      }
-    });
-
-    return header;
-}
-  
- studentSearch();   
     
 
 
